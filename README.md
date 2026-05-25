@@ -1,26 +1,26 @@
 # HospitalLux
 
-**HospitalLux** is a desktop application for managing hospital patients, wards, and departments.  
-The project is built with JavaFX and uses a SQL Server database.
+**HospitalLux** — это desktop-приложение для учета пациентов, палат и отделений больницы.  
+Проект разработан на JavaFX с подключением к базе данных SQL Server.
 
-## Project Description
+## Описание проекта
 
-The application allows hospital staff to manage patient records, view ward and department information, generate reports, and export data to CSV files.
+Приложение позволяет сотруднику медицинского учреждения удобно работать с данными пациентов, просматривать информацию о палатах и отделениях, формировать отчеты и экспортировать данные в CSV-файл.
 
-## Features
+## Возможности
 
-- add new patients;
-- edit patient information;
-- delete patients;
-- view patient records;
-- view wards and departments;
-- search and filter data;
-- check available ward places;
-- generate reports;
-- export data to CSV;
-- validate user input.
+- добавление пациентов;
+- редактирование данных пациентов;
+- удаление пациентов;
+- просмотр списка пациентов;
+- просмотр палат и отделений;
+- поиск и фильтрация данных;
+- проверка свободных мест в палатах;
+- формирование отчетов;
+- экспорт данных в CSV;
+- валидация введённых данных.
 
-## Technologies Used
+## Технологии
 
 - Java
 - JavaFX
@@ -30,7 +30,7 @@ The application allows hospital staff to manage patient records, view ward and d
 - SQL Server
 - Maven
 
-## Project Structure
+## Структура проекта
 
 ```text
 HospitalLux
