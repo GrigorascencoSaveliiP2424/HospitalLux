@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.practica.controller.PatientFormController"
+            stylesheets="@style.css"
+            styleClass="form-root">
+
+    <center>
+
+        <VBox spacing="28"
+              alignment="TOP_CENTER"
+              styleClass="patient-form-container">
+
+            <padding>
+                <Insets top="35" right="40" bottom="35" left="40"/>
+            </padding>
+
+            <VBox spacing="6" alignment="CENTER_LEFT">
+
+                <Label text="Данные пациента"
+                       styleClass="form-title"/>
+
+                <Label text="Введите информацию о пациенте"
+                       styleClass="form-subtitle"/>
+
+            </VBox>
+
+            <GridPane hgap="20"
+                      vgap="18"
+                      styleClass="form-grid">
+
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="50"/>
+                    <ColumnConstraints percentWidth="50"/>
+                </columnConstraints>
+
+                <!-- ФИО -->
+
+                <VBox spacing="8"
+                      GridPane.rowIndex="0"
+                      GridPane.columnIndex="0">
+
+                    <Label text="ФИО"
+                           styleClass="input-label"/>
+
+                    <TextField fx:id="nameField"
+                               promptText="Введите ФИО"/>
+
+                </VBox>
+
+                <!-- Телефон -->
+
+                <VBox spacing="8"
+                      GridPane.rowIndex="0"
+                      GridPane.columnIndex="1">
+
+                    <Label text="Телефон"
+                           styleClass="input-label"/>
+
+                    <TextField fx:id="phoneField"
+                               promptText="+373XXXXXXXX"/>
+
+                </VBox>
+
+                <!-- Адрес -->
+
+                <VBox spacing="8"
+                      GridPane.rowIndex="1"
+                      GridPane.columnIndex="0">
+
+                    <Label text="Адрес"
+                           styleClass="input-label"/>
+
+                    <TextField fx:id="addressField"
+                               promptText="Введите адрес"/>
+
+                </VBox>
+
+                <!-- Диагноз -->
+
+                <VBox spacing="8"
+                      GridPane.rowIndex="1"
+                      GridPane.columnIndex="1">
+
+                    <Label text="Диагноз"
+                           styleClass="input-label"/>
+
+                    <TextField fx:id="diagnosisField"
+                               promptText="Введите диагноз"/>
+
+                </VBox>
+
+                <!-- Дата -->
+
+                <VBox spacing="8"
+                      GridPane.rowIndex="2"
+                      GridPane.columnIndex="0">
+
+                    <Label text="Дата поступления"
+                           styleClass="input-label"/>
+
+                    <DatePicker fx:id="datePicker"/>
+
+                </VBox>
+
+                <!-- Отделение -->
+
+                <VBox spacing="8"
+                      GridPane.rowIndex="2"
+                      GridPane.columnIndex="1">
+
+                    <Label text="Отделение"
+                           styleClass="input-label"/>
+
+                    <ComboBox fx:id="departmentBox"
+                              promptText="Выберите отделение"/>
+
+                </VBox>
+
+                <!-- Специализация -->
+
+                <VBox spacing="8"
+                      GridPane.rowIndex="3"
+                      GridPane.columnIndex="0">
+
+                    <Label text="Специализация"
+                           styleClass="input-label"/>
+
+                    <ComboBox fx:id="specializationBox"
+                              promptText="Выберите специализацию"/>
+
+                </VBox>
+
+                <!-- Тип палаты -->
+
+                <VBox spacing="8"
+                      GridPane.rowIndex="3"
+                      GridPane.columnIndex="1">
+
+                    <Label text="Тип палаты"
+                           styleClass="input-label"/>
+
+                    <ComboBox fx:id="wardTypeBox"
+                              promptText="Выберите тип палаты"/>
+
+                </VBox>
+
+            </GridPane>
+
+            <HBox alignment="CENTER" spacing="18" prefWidth="520">
+                <Button text="Отмена"
+                        onAction="#handleCancel"
+                        prefWidth="190"
+                        prefHeight="54"
+                        styleClass="outline-button"/>
+
+                <Button text="Сохранить"
+                        onAction="#handleSave"
+                        prefWidth="220"
+                        prefHeight="54"
+                        styleClass="primary-button"/>
+            </HBox>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

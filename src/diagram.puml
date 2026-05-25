@@ -1,0 +1,164 @@
+@startuml
+
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+skinparam classFontSize 12
+
+abstract class BaseEntity {
+    #id : int
+    +BaseEntity(id : int)
+    +getId() : int
+    +hasValidId() : boolean
+}
+
+class Patient {
+    -patientName : String
+    -patientAdress : String
+    -patientNumber : String
+    -patientDiagnosis : String
+    -dateOfAdmission : Date
+    -wardId : int
+    -departmentName : String
+    -wardType : String
+    +getPatientName() : String
+    +getPatientDiagnosis() : String
+    +getDateOfAdmission() : Date
+    +getDepartmentName() : String
+    +getWardType() : String
+}
+
+class Ward {
+    -numberOfWard : int
+    -typeWard : String
+    -kolSeats : int
+    -departmentId : int
+    +getNumberOfWard() : int
+    +getTypeWard() : String
+    +getKolSeats() : int
+    +getDepartmentId() : int
+}
+
+class Department {
+    -departmentName : String
+    -specialization : String
+    -kolWard : int
+    +getDepartmentName() : String
+    +getSpecialization() : String
+    +getKolWard() : int
+}
+
+interface Repository<T> {
+    +add(item : T) : void
+    +update(item : T) : void
+    +delete(id : int) : void
+}
+
+class PatientRepository {
+    +getSelectQuery() : String
+    +getPatientForEdit(patientId : int) : Map<String, String>
+    +add(patient : Patient) : void
+    +update(patient : Patient) : void
+    +delete(id : int) : void
+}
+
+class WardRepository {
+    +getSelectQuery() : String
+    +getAllWards() : List<Ward>
+    +hasFreePlacesByType(departmentName : String, wardType : String) : boolean
+}
+
+class DepartmentRepository {
+    +getSelectQuery() : String
+    +getAvailableDepartments() : List<String>
+    +getSpecializationByDepartment(departmentName : String) : String
+}
+
+class MainController {
+    -currentQuery : String
+    -reportTables : ObservableList
+    +initialize() : void
+    -showPatients() : void
+    -showWards() : void
+    -showDepartments() : void
+    -showReport() : void
+    -handleAdd() : void
+    -handleUpdate() : void
+    -handleDelete() : void
+    -handleExport() : void
+}
+
+class PatientFormController {
+    -editMode : boolean
+    -editingPatientId : int
+    +initialize() : void
+    +setPatientForEdit(patientId : int) : void
+    -handleSave() : void
+    -validateFields() : boolean
+}
+
+class DatabaseConnection {
+    +getConnection() : Connection
+}
+
+class ExportService {
+    +exportToCsv(tableView : TableView) : boolean
+    +exportReportToCsv(tables : ObservableList) : boolean
+}
+
+class HospitalApplication {
+    +start(stage : Stage) : void
+    +main(args : String[]) : void
+}
+
+class Launcher {
+    +main(args : String[]) : void
+}
+
+enum WardType {
+    INTENSIVE_CARE
+    STANDARD
+    POST_SURGERY
+    CHILDREN_WARD
+    CHEMOTHERAPY
+    REHABILITATION
+    SKIN_CARE
+    EYE_CARE
+    ENT_STANDARD
+    GENERAL_WARD
+    VIP
+}
+
+BaseEntity <|-- Patient
+BaseEntity <|-- Ward
+BaseEntity <|-- Department
+
+Repository <|.. PatientRepository
+
+PatientRepository --> Patient
+PatientRepository --> DatabaseConnection
+
+WardRepository --> Ward
+WardRepository --> DatabaseConnection
+
+DepartmentRepository --> DatabaseConnection
+
+Patient --> Ward
+Ward --> Department
+
+MainController --> PatientRepository
+MainController --> WardRepository
+MainController --> DepartmentRepository
+MainController --> ExportService
+MainController --> PatientFormController
+MainController --> DatabaseConnection
+
+PatientFormController --> Patient
+PatientFormController --> PatientRepository
+PatientFormController --> WardRepository
+PatientFormController --> DepartmentRepository
+PatientFormController ..> WardType
+
+HospitalApplication --> MainController
+Launcher --> HospitalApplication
+
+@enduml

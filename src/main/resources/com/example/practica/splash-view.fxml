@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ProgressIndicator?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml"
+           stylesheets="@style.css"
+           styleClass="splash-root">
+
+    <VBox alignment="CENTER"
+          spacing="35">
+
+        <ImageView fitWidth="1200"
+                   preserveRatio="true">
+
+            <image>
+                <Image url="@icons/logo.png"/>
+            </image>
+        </ImageView>
+
+        <VBox spacing="12"
+              alignment="CENTER"
+              translateY="-160">
+
+            <ProgressIndicator progress="-1"
+                               prefWidth="190"
+                               prefHeight="190"
+                               styleClass="splash-loader"/>
+
+            <Label text="Loading HospitalLux..."
+                   styleClass="splash-loading"/>
+        </VBox>
+
+    </VBox>
+
+</StackPane>
