@@ -30,6 +30,33 @@
 - SQL Server
 - Maven
 
+## Screenshots
+
+Screenshots of the application are stored in the `screenshots` folder of this repository.
+
+### Main Window
+
+![Main Window](screenshots/main.png)
+
+### Patients
+
+![Patients](screenshots/patients.png)
+
+### Add / Edit Patient Form
+
+![Patient Form](screenshots/patients-form.png)
+
+### Wards
+
+![Wards](screenshots/wards.png)
+
+### Reports
+
+![Reports](screenshots/report.png)
+
+### Statistics
+
+![Statistics](screenshots/statistics.png)
 ## Структура проекта
 
 ```text
